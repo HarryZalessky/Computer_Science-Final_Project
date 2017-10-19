@@ -1,0 +1,35 @@
+header {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    height: 128px;
+    left: 0px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
+    z-index: 1024;
+    .logo {
+        /*outlining the logo area for futureproofing, remove before production*/
+        position: absolute;
+        display: inline;
+        margin: 0px 50px;
+        height:128px;
+        width: 128px;
+        background-color: red;
+        
+    }
+    .header_content {
+        display: inline-block;
+        position: absolute;
+        left: 228px;
+        top: 0px;
+        width: calc(100% - 228px);
+        height: 128px;
+        .header_top {
+            width: 100%;
+            height:64px;
+        }
+        .header_bottom {
+            width: 100%;
+            height: 64px;
+        }
+    }
+}
