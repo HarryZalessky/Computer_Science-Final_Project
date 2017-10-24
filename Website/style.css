@@ -1,4 +1,4 @@
-header {
+.header_full {
   width: 100%;
   position: fixed;
   top: 0px;
@@ -6,7 +6,7 @@ header {
   left: 0px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   z-index: 1024; }
-  header .logo {
+  .header_full .logo {
     /*outlining the logo area for futureproofing, remove before production*/
     position: absolute;
     display: inline;
@@ -14,18 +14,31 @@ header {
     height: 128px;
     width: 128px;
     background-color: red; }
-  header .header_content {
+  .header_full .divider {
+    display: inline;
+    position: absolute;
+    left: 229px;
+    top: 0px;
+    width: 1px;
+    height: 128px;
+    background-color: grey; }
+  .header_full .header_content {
+    z-index: 1023;
     display: inline-block;
     position: absolute;
-    left: 228px;
+    left: 229px;
+    border-left: solid 1px #ececec;
     top: 0px;
-    width: calc(100% - 228px);
+    width: calc(100% - 230px);
     height: 128px; }
-    header .header_content .header_top {
+    .header_full .header_content .header_top {
+      display: block;
       width: 100%;
-      height: 64px; }
-    header .header_content .header_bottom {
+      height: 87px;
+      border-bottom: solid 1px #ececec; }
+    .header_full .header_content .header_bottom {
+      display: block;
       width: 100%;
-      height: 64px; }
+      height: 40px; }
 
 /*# sourceMappingURL=style.css.map */
