@@ -7,21 +7,12 @@
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   z-index: 1024; }
   .header_full .logo {
-    /*outlining the logo area for futureproofing, remove before production*/
     position: absolute;
     display: inline;
     margin: 0px 50px;
     height: 128px;
     width: 128px;
     background-color: red; }
-  .header_full .divider {
-    display: inline;
-    position: absolute;
-    left: 229px;
-    top: 0px;
-    width: 1px;
-    height: 128px;
-    background-color: grey; }
   .header_full .header_content {
     z-index: 1023;
     display: inline-block;
@@ -36,9 +27,27 @@
       width: 100%;
       height: 87px;
       border-bottom: solid 1px #ececec; }
+      .header_full .header_content .header_top .left_nav {
+        display: inline;
+        float: left; }
+        .header_full .header_content .header_top .left_nav li {
+          display: inline; }
+      .header_full .header_content .header_top .right_nav {
+        display: inline;
+        float: right; }
+        .header_full .header_content .header_top .right_nav li {
+          display: inline; }
     .header_full .header_content .header_bottom {
       display: block;
       width: 100%;
       height: 40px; }
+      .header_full .header_content .header_bottom .left_nav {
+        display: inline; }
+        .header_full .header_content .header_bottom .left_nav li {
+          display: inline; }
+      .header_full .header_content .header_bottom .right_nav {
+        display: inline; }
+        .header_full .header_content .header_bottom .right_nav li {
+          display: inline; }
 
 /*# sourceMappingURL=style.css.map */

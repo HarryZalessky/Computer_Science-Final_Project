@@ -7,22 +7,12 @@
     box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
     z-index: 1024;
     .logo {
-        /*outlining the logo area for futureproofing, remove before production*/
         position: absolute;
         display: inline;
         margin: 0px 50px;
         height:128px;
         width: 128px;
         background-color: red;
-    }
-    .divider {
-        display: inline;
-        position: absolute;
-        left: 229px;
-        top: 0px;
-        width: 1px;
-        height: 128px;
-        background-color: grey;
     }
     .header_content {
         z-index: 1023;
@@ -38,11 +28,37 @@
             width: 100%;
             height:87px;
             border-bottom: solid 1px #ececec;
+            .left_nav {
+                display: inline;
+                float:left;
+                li {
+                    display: inline;
+                }
+            }
+            .right_nav {
+                display: inline;
+                float: right;
+                li {
+                    display: inline;
+                }
+            }
         }
         .header_bottom {
             display: block;
             width: 100%;
             height: 40px;
+            .left_nav {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
+            .right_nav {
+                display: inline;
+                li {
+                    display: inline;
+                }
+            }
         }
     }
 }

@@ -12,11 +12,12 @@
             <div class="header_content">
                 <nav class="header_top">
                     <ul class="left_nav">
-                        <li>
-                            <a class="header_hire">Find Developers</a>
+                        <li class="header_hire">
+                            <a>Find Developers</a>
+                            
                         </li>
-                        <li>
-                            <a class="header_work">Find work</a>
+                        <li class="header_work">
+                            <a>Find work</a>
                         </li>
                     </ul>
                     <ul class="right_nav">
@@ -29,14 +30,28 @@
                     </ul>
                 </nav>
                 <nav class="header_bottom">
-                    <a class="header_faq">FAQ</a>
-                    <a class="header_community">Community</a>
-                    <a class="header_blog">Blog</a>
-                    <a class="header_about">About Us</a>
-                    <a class="header_contactus">Contact Us</a>
-                    <div class="header_social">
-                        <!--add social media links here-->
-                    </div>
+                    <ul class="left_nav">
+                        <li>
+                            <a class="header_faq">FAQ</a>
+                        </li>
+                        <li>
+                            <a class="header_community">Community</a>
+                        </li>
+                        <li>
+                            <a class="header_blog">Blog</a>
+                        </li>
+                        <li>
+                            <a class="header_about">About Us</a>
+                        </li>
+                    </ul>
+                    <ul class="right_nav">
+                        <li>
+                            <a class="header_contactus">Contact Us</a>
+                        </li>
+                        <li class="header_social">
+                            <!--add social media links here-->
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </header>
