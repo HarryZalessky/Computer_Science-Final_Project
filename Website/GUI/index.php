@@ -13,19 +13,18 @@
                 <nav class="header_top">
                     <ul class="left_nav">
                         <li class="header_hire">
-                            <a>Find Developers</a>
-                            
+                            <a href="Post A Project/index.php">Post A Project</a>
                         </li>
                         <li class="header_work">
-                            <a>Find work</a>
+                            <a href="Find Work/index.php">Find work</a>
                         </li>
                     </ul>
                     <ul class="right_nav">
                         <li>
-                            <a class="header_register">Become a member</a>
+                            <a href="Register/index.php">Become a member</a>
                         </li>
                         <li>
-                            <a class="header_login">Already a member? Log In</a>
+                            <a href="Login/index.php">Already a member? Log In</a>
                         </li>
                     </ul>
                 </nav>

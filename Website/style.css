@@ -4,8 +4,7 @@
   top: 0px;
   height: 128px;
   left: 0px;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
-  z-index: 1024; }
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12); }
   .header_full .logo {
     position: absolute;
     display: inline;
@@ -14,7 +13,6 @@
     width: 128px;
     background-color: red; }
   .header_full .header_content {
-    z-index: 1023;
     display: inline-block;
     position: absolute;
     left: 229px;
@@ -25,13 +23,32 @@
     .header_full .header_content .header_top {
       display: block;
       width: 100%;
-      height: 87px;
+      height: 64px;
       border-bottom: solid 1px #ececec; }
       .header_full .header_content .header_top .left_nav {
         display: inline;
         float: left; }
         .header_full .header_content .header_top .left_nav li {
           display: inline; }
+          .header_full .header_content .header_top .left_nav li .sub_menu {
+            z-index: 0; }
+            .header_full .header_content .header_top .left_nav li .sub_menu ul {
+              display: block;
+              z-index: 0; }
+              .header_full .header_content .header_top .left_nav li .sub_menu ul li {
+                display: block;
+                z-index: 0; }
+        .header_full .header_content .header_top .left_nav li:hover {
+          display: inline; }
+          .header_full .header_content .header_top .left_nav li:hover .sub_menu {
+            display: block;
+            z-index: 0; }
+            .header_full .header_content .header_top .left_nav li:hover .sub_menu ul {
+              display: block;
+              z-index: 0; }
+              .header_full .header_content .header_top .left_nav li:hover .sub_menu ul li {
+                display: block;
+                z-index: 0; }
       .header_full .header_content .header_top .right_nav {
         display: inline;
         float: right; }
@@ -40,7 +57,7 @@
     .header_full .header_content .header_bottom {
       display: block;
       width: 100%;
-      height: 40px; }
+      height: 64px; }
       .header_full .header_content .header_bottom .left_nav {
         display: inline; }
         .header_full .header_content .header_bottom .left_nav li {
