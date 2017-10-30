@@ -1,8 +1,12 @@
 <?php
-    $dbPath="127.0.0.1";
-    $dbName="final_project";
-    $dbUser="root";
-    $dbPass="";
-    function dbConnect($dbPath, $dbName, $dbUser, $dbPass) {
+    $dbHost = "localhost";
+    $dbName = "final_project";
+    $dbUser = "WebService";
+    $dbPass = "Harry&Anna1F0rever!";
     
-}
+    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+    
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
