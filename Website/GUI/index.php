@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/style.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <title>DevLancer - Developer jobs for freelancers</title>
     </head>
     <body>
