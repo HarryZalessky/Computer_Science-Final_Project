@@ -1,12 +1,4 @@
 <?php
-    $dbHost = "localhost";
-    $dbName = "final_project";
-    $dbUser = "WebService";
-    $dbPass = "Harry&Anna1F0rever!";
+    include_once 'psl-config.php';
     
-    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-    
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
+    $conn = new mysqli(HOST, USER, PASS, DBNAME);
