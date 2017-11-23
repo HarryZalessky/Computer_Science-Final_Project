@@ -18,5 +18,4 @@ function register($username, $email, $passHash) {
     return insertUser($link, $username, $email, $salt, $passHash, $regIp);
     closeConn($link);
 }
-echo register('test', 'test@gmail.com', md5('26112000'));
 ?>
