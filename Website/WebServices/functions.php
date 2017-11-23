@@ -49,4 +49,12 @@ function insertUser($conn, $username, $email, $salt, $passHash, $regIp) {
         return 'Couldn\'t complete the registration. please contact us at "Webmaster@devlancer.com" for further info' ;
     }
 }
+function genPrivateKey($userid) {
+    $link = openPerConn();
+    if($result = $link->query("SELECT salt FROM `users` WHERE `id` = ".$userid)) {
+        $arr = mysqli_fetch_array($result, MYSQLI_NUM);
+        $salt = $arr[0];
+    }
+    return md5(md5($salt).md5($_SERVER['HTTP_USER_AGENT']));
+}
     ?>

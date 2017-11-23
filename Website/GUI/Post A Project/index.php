@@ -7,11 +7,11 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/style.css">
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <?php require_once '../../includes/header.php'; ?>
+        
     </body>
 </html>
