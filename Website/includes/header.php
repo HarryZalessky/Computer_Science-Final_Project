@@ -12,10 +12,10 @@
             </ul>
             <ul class="right_nav">
                 <li>
-                    <a href="#" onclick="">Become a member</a>
+                    <a href="#" id="registerBtn">Become a member</a>
                 </li>
                 <li>
-                    <a href="Login/index.php">Already a member? Log In</a>
+                    <a href="#" id="loginBtn">Already a member? Log In</a>
                 </li>
             </ul>
         </nav>
