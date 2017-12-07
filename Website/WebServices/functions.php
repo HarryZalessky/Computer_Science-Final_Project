@@ -42,7 +42,7 @@ function genHash($salt, $passHash) {
     return md5($passHash.md5($salt));
 }
 function insertUser($conn, $username, $email, $salt, $passHash, $regIp) {
-    $result = $conn->query("INSERT INTO `users`(`username`, `email`, `salt`, `passhash`, `reg_date`, `last_login_date`, `reg_ip`, `last_login_ip`) VALUES ('".$username."','".$email."','".$salt."','".$passHash."',now(),now(),".$regIp.",".$regIp.")");
+    $result = $conn->query("INSERT INTO `users`(`username`, `email`, `salt`, `passhash`, `reg_date`, `last_login_date`, `reg_ip`, `last_login_ip`, `must_validate`) VALUES ('".$username."','".$email."','".$salt."','".$passHash."',now(),now(),".$regIp.",".$regIp.", 1)");
     if($conn->errno===0) {
         return 0;
     } else {
