@@ -1,13 +1,14 @@
 <?php
-    //require '../webServices/dbConnect.php';
-    require '../webServices/functions.php';
     session_start();
+    //require '../webServices/dbConnect.php';
+    require '../WebServices/functions.php';
+    
     $link;
     $results;
     if(isset ($_SESSION["USER_ID"])) {
         if(isset($_SESSION["USERAGENT"])) {
             if($_SESSION["USERAGENT"] === $_SERVER["HTTP_USER_AGENT"]) {
-                //login();
+                exit();
             } else {
                 header('Location: '/*.session stealing error page*/);
             }
@@ -22,7 +23,9 @@
                 $resultArr = mysqli_fetch_all($results, MYSQLI_ASSOC);
                 foreach ($resultArr["privatekey"] as $value) {
                     if($value === genPrivateString($userid)) {
-                        //Login();
+                        $_SESSION["USER_ID"] = $userid;
+                        $_SESSION["USERAGENT"] = $_SERVER["HTTP_USER_AGENT"];
+                        exit();
                     }
                 }
                 goto Guest;

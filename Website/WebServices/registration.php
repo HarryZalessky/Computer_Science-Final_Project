@@ -1,7 +1,10 @@
 <?php
 //include 'dbConnect.php';
 include 'functions.php';
-function register($username, $email, $password) {
+if(isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
     $link = openPerConn();
     switch (checkUserExist($username, $email, $link)) {
         case 0: break;
@@ -13,9 +16,10 @@ function register($username, $email, $password) {
         return $error;
     }
     $salt = genSalt(5);
-    $regIp = ip2long('123.126.131.54');
+    $regIp = ip2long($_SERVER['REMOTE_ADDR']);
     $passHash = md5($password);
     return insertUser($link, $username, $email, $salt, $passHash, $regIp);
     closeConn($link);
+    header('Location: ../GUI/');
 }
 ?>
