@@ -1,27 +1,48 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require 'dbConnect.php';
 function checkUserExist($username, $email, $conn) {
-    if($result = $conn->query("SELECT * FROM users WHERE username LIKE '" . $username . "'")) {
+    if($stmt = $conn->prepare("SELECT * FROM `users` WHERE `username` LIKE ?")) {
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
         $row_cnt=$result->num_rows;
         if($row_cnt>0) {
             return 1;
         }
         $result=NULL;
+    } else {
+        $error = $conn->errno . ' ' . $conn->error;
+    echo $error; // 1054 Unknown column 'foo' in 'field list'
     }
-    if($result = $conn->query("SELECT * FROM users WHERE email LIKE '" . $email . "'")) {
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email LIKE ?");
+    $stmt->bind_param('s', $email);
+    if($stmt->execute()) {
+        $result = $stmt->get_result();
         $row_cnt=$result->num_rows;
         if($row_cnt>0) {
             return 2;
         }
+    } else {
+        $error = $conn->errno . ' ' . $conn->error;
+    echo $error; // 1054 Unknown column 'foo' in 'field list'
     }
     return 0;
 }
 function checkEmailBanned($email, $conn) {
-    $result = $conn->query("SELECT notes FROM `banned_emails` WHERE '" .$email. "' LIKE `email_regex`");
-    $row_cnt=$result->num_rows;
-    if($row_cnt>0) {
-        $error = mysqli_fetch_assoc($result)['notes'];
-        return $error;
+    if($stmt = $conn->prepare("SELECT notes FROM `banned_emails` WHERE ? LIKE `email_regex`")) {
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row_cnt=$result->num_rows;
+        if($row_cnt>0) {
+            $error = mysqli_fetch_assoc($result)['notes'];
+            return $error;
+        }
+    } else {
+        $error = $conn->errno . ' ' . $conn->error;
+    echo $error; // 1054 Unknown column 'foo' in 'field list'
     }
     return 0;
 }
@@ -42,16 +63,25 @@ function genHash($salt, $passHash) {
     return md5($passHash.md5($salt));
 }
 function insertUser($conn, $username, $email, $salt, $passHash, $regIp) {
-    $result = $conn->query("INSERT INTO `users`(`username`, `email`, `salt`, `passhash`, `reg_date`, `last_login_date`, `reg_ip`, `last_login_ip`, `must_validate`) VALUES ('".$username."','".$email."','".$salt."','".$passHash."',now(),now(),".$regIp.",".$regIp.", 1)");
-    if($conn->errno===0) {
-        return 0;
+    if($stmt = $conn->prepare("INSERT INTO `users`(`username`, `email`, `salt`, `passhash`, `reg_date`, `last_login_date`, `reg_ip`, `last_login_ip`, `must_validate`) VALUES (?,?,?,?,now(),now(),?,?, 1)")) {
+        $stmt->bind_param('ssssii', $username, $email, $salt, $passHash, $regIp, $regIp);
+        $result = $stmt->execute();
+        if($conn->errno===0) {
+            return 0;
+        } else {
+            return 'Couldn\'t complete the registration. please contact us at "Webmaster@devlancer.com" for further info' ;
+        }
     } else {
-        return 'Couldn\'t complete the registration. please contact us at "Webmaster@devlancer.com" for further info' ;
+        $error = $conn->errno . ' ' . $conn->error;
+    echo $error; // 1054 Unknown column 'foo' in 'field list'
     }
 }
 function genPrivateKey($userid) {
     $link = openPerConn();
-    if($result = $link->query("SELECT salt FROM `users` WHERE `id` = ".$userid)) {
+    $stmt = $conn->prepare("SELECT salt FROM `users` WHERE `id` = :userid");
+    $stmt->bindParam(':userid', $userid);
+    if($result = $stmt->execute()) {
+        $result = $stmt->get_result();
         $arr = mysqli_fetch_array($result, MYSQLI_NUM);
         $salt = $arr[0];
     }
