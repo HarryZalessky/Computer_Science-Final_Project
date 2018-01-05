@@ -45,3 +45,7 @@
         </nav>
     </div>
 </header>
+<?php
+    require_once '../includes/frmLogin.php';
+    require_once '../includes/frmRegister.php';
+?>
