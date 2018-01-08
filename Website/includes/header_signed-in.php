@@ -1,13 +1,13 @@
 <header class="header_full">
-    <img class="logo" alt="logo" src="/Media/devlancer_vertical.png">
+    <a href="../GUI/"><img class="logo" alt="logo" src="/Media/devlancer_vertical.png"></a>
     <div class="header_content">
         <nav class="header_top">
             <ul class="nav">
                 <li class="header_hire">
-                    <a href="Post A Project/index.php">Post A Project</a>
+                    <a href="PostAProject">Post A Project</a>
                 </li>
                 <li class="header_work">
-                    <a href="Find Work/index.php">Find work</a>
+                    <a href="FindWork">Find work</a>
                 </li>
                 <li>
                     <input type="search">
@@ -19,10 +19,7 @@
                     <!--messages-->
                 </li>
                 <li style="top:0;">
-                    <?php
-                        //require_once '../includes/userMenu.php';
-                    ?>
-                    <img src="../profile_images/<?php if(isset($_SESSION["profile_image"])){echo $_SESSION["profile_image"];} else {echo "default.jpg";}?>" alt="Profile Image" />                    
+                    <img src="<?php echo grabPofileImage($_SESSION['USER_ID']); ?>" alt="Profile Image" onclick="document.getElementById('userMenu').style.display = 'block';" />
                 </li>
             </ul>
         </nav>
@@ -52,3 +49,6 @@
         </nav>
     </div>
 </header>
+<?php
+    require_once '../includes/userMenu.php';
+?>
