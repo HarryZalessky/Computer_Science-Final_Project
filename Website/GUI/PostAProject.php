@@ -10,13 +10,19 @@ sessionManager();
         <title>DevLancer - Developer jobs for freelancers</title>
     </head>
     <body>
-        <?php 
-            if(isset($_SESSION["USER_ID"])){
-                require_once '../includes/header_signed-in.php';
-            } else {
-                require_once '../includes/header.php';
-            }
+        <?php
+        if (isset($_SESSION["USER_ID"])) {
+            require_once '../includes/header_signed-in.php';
+        } else {
+            require_once '../includes/header.php';
+        }
         ?>
+        <div>
+        <form>
+            <input type="text" placeholder="project name"><br>
+            <textarea></textarea>
+        </form>
+        </div>
         <script type="text/javascript" src="/scripts.js"></script>
     </body>
 </html>
